@@ -15,7 +15,7 @@ spec:
   - ReadWriteOnce
   csi:
     driver: ebs.csi.aws.com
-    volumeHandle: vol-0bcc431154d860020
+    volumeHandle: vol-0061085a878f1ab71
     fsType: ext4
   nodeAffinity:
     required:
