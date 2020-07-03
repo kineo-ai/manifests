@@ -1,8 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: metadata-mysql
+  name: metadata-db
 spec:
+  storageClassName: retained-ebs-sc
+  volumeName: metadata-db-pv
   accessModes:
     - ReadWriteOnce
   resources:

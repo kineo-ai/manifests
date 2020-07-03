@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: metadata-db-pv
+spec:
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: kubeflow
+    name: metadata-db
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: retained-ebs-sc
+  capacity:
+    storage: 10Gi
+  accessModes:
+  - ReadWriteOnce
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: vol-0bcc431154d860020
+    fsType: ext4
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - eu-central-1a

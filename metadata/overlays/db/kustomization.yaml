@@ -16,6 +16,7 @@ bases:
 - ../../base
 resources:
 - metadata-db-pvc.yaml
+- metadata-db-pv.yaml
 - metadata-db-deployment.yaml
 - metadata-db-service.yaml
 patchesStrategicMerge:
