@@ -9,3 +9,5 @@ varReference:
   kind: PersistentVolume
 - path: spec/claimRef/name
   kind: PersistentVolume
+- path: spec/csi/volumeHandle
+  kind: PersistentVolume
