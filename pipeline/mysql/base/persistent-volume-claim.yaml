@@ -3,8 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: $(mysqlPvcName)
 spec:
+  storageClassName: retained-ebs-sc
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
+  volumeName: $(mysqlPvName)

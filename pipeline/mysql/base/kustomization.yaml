@@ -6,6 +6,7 @@ resources:
 - deployment.yaml
 - service.yaml
 - persistent-volume-claim.yaml
+- persistent-volume.yaml
 configMapGenerator:
 - name: pipeline-mysql-parameters
   env: params.env
@@ -19,6 +20,20 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.mysqlPvcName
+- name: mysqlPvName
+  objref:
+    kind: ConfigMap
+    name: pipeline-mysql-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.mysqlPvName
+- name: mysqlPersistentVolumeHandle
+  objref:
+    kind: ConfigMap
+    name: pipeline-mysql-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.mysqlPersistentVolumeHandle
 images:
 - name: mysql
   newTag: '5.6'

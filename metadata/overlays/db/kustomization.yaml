@@ -33,3 +33,10 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: metadata.name
+- name: metadataMysqlPersistentVolumeHandle
+  objref:
+    kind: ConfigMap
+    name: metadata-db-parameters
+    version: v1
+  fieldref:
+    fieldpath: data.metadataMysqlPersistentVolumeHandle

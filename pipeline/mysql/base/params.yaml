@@ -3,3 +3,9 @@ varReference:
   kind: Deployment
 - path: metadata/name
   kind: PersistentVolumeClaim
+- path: spec/volumeName
+  kind: PersistentVolumeClaim
+- path: metadata/name
+  kind: PersistentVolume
+- path: spec/claimRef/name
+  kind: PersistentVolume
