@@ -40,3 +40,5 @@ vars:
     version: v1
   fieldref:
     fieldpath: data.metadataMysqlPersistentVolumeHandle
+configurations:
+- params.yaml
