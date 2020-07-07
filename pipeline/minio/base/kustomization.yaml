@@ -21,7 +21,7 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.minioPvcName
-- name: minioPvcName
+- name: minioPersistentVolumeHandle
   objref:
     kind: ConfigMap
     name: pipeline-minio-parameters
