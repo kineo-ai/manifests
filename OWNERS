@@ -1,18 +1,15 @@
 approvers:
-  - abhi-g
   - animeshsingh
-  - ashahba
-  - gabrielwen
-  - hougangliu
-  - IronPan
+  - Bobgy
+  - elikatsis
   - jlewi
-  - kkasravi
-  - kunmingg
-  - lluunn
-  - richardsliu
+  - PatrickXYS
+  - StefanoFioravanzo
   - swiftdiaries
   - terrytangyuan
+  - vkoukis
   - yanniszark
   - zhenghuiwang
 reviewers:
   - krishnadurai
+  - pvaneck

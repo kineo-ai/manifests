@@ -5,6 +5,7 @@ metadata:
     app: centraldashboard
     app.kubernetes.io/component: centraldashboard
     app.kubernetes.io/name: centraldashboard
+    kustomize.component: centraldashboard
   name: centraldashboard
   namespace: kubeflow
 spec:
@@ -14,6 +15,7 @@ spec:
       app: centraldashboard
       app.kubernetes.io/component: centraldashboard
       app.kubernetes.io/name: centraldashboard
+      kustomize.component: centraldashboard
   template:
     metadata:
       annotations:
@@ -22,6 +24,7 @@ spec:
         app: centraldashboard
         app.kubernetes.io/component: centraldashboard
         app.kubernetes.io/name: centraldashboard
+        kustomize.component: centraldashboard
     spec:
       containers:
       - env:
@@ -29,13 +32,15 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: userid-header
-              name: kubeflow-config-4bkkg42k5m
+              name: kubeflow-config-bmh8k74f52
         - name: USERID_PREFIX
           valueFrom:
             configMapKeyRef:
               key: userid-prefix
-              name: kubeflow-config-4bkkg42k5m
-        image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-gf39279c0
+              name: kubeflow-config-bmh8k74f52
+        - name: DASHBOARD_LINKS_CONFIGMAP
+          value: centraldashboard-links-config
+        image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-g8097cfeb
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

@@ -3,6 +3,8 @@ kind: ClusterRole
 metadata:
   labels:
     app: kubeflow-pipelines-cache-deployer-clusterrole
+    app.kubernetes.io/component: ml-pipeline
+    app.kubernetes.io/name: kubeflow-pipelines
   name: kubeflow-pipelines-cache-deployer-clusterrole
 rules:
 - apiGroups:
@@ -21,4 +23,15 @@ rules:
   - mutatingwebhookconfigurations
   verbs:
   - create
+  - delete
   - get
+  - list
+  - patch
+- apiGroups:
+  - certificates.k8s.io
+  resourceNames:
+  - kubernetes.io/*
+  resources:
+  - signers
+  verbs:
+  - approve

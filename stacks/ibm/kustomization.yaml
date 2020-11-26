@@ -8,16 +8,11 @@ resources:
   - application/jupyter-web-app
   - application/notebook-controller
   - application/profiles
-  - ../../argo/base_v3
-  - ../../pipeline/api-service/overlays/application
   - ../../pipeline/minio/installs/ibm
   - ../../pipeline/mysql/installs/ibm
-  - ../../pipeline/persistent-agent/overlays/application
-  - ../../pipeline/pipelines-runner/overlays/application
-  - application/pipelines-ui
-  - ../../pipeline/pipelines-viewer/overlays/application
-  - ../../pipeline/scheduledworkflow/overlays/application
-  - ../../pipeline/pipeline-visualization-service/overlays/application
+  - ../../pipeline/installs/generic
+  - ../../argo/base_v3
+  - application/metadata
   - ../../pytorch-job/pytorch-job-crds/overlays/application
   - ../../pytorch-job/pytorch-operator/overlays/application
   - ../../tf-training/tf-job-crds/overlays/application
@@ -41,26 +36,9 @@ configMapGenerator:
   behavior: merge
   literals:
   - admin=example@kubeflow.org
-- name: kubeflow-config
-  envs:
-  - ./config/params.env
 vars:
 # We need to define vars at the top level otherwise we will get
 # conflicts. 
-- fieldref:
-    fieldPath: data.clusterDomain
-  name: clusterDomain
-  objref:
-    apiVersion: v1
-    kind: ConfigMap
-    name: kubeflow-config
-- fieldref:
-    fieldPath: metadata.namespace
-  name: namespace
-  objref:
-    apiVersion: v1
-    kind: ConfigMap
-    name: kubeflow-config
 - fieldref:
     fieldpath: metadata.namespace
   name: katib-ui-namespace
