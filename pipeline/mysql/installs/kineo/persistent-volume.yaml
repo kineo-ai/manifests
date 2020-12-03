@@ -6,7 +6,7 @@ spec:
   claimRef:
     kind: PersistentVolumeClaim
     namespace: kubeflow
-    name: mysql-pvc
+    name: mysql-pv-claim
   persistentVolumeReclaimPolicy: Retain
   storageClassName: retained-ebs-sc
   capacity:
