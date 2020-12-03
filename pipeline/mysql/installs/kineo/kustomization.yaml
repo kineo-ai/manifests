@@ -26,7 +26,7 @@ vars:
     name: kineo-pipeline-mysql-install-config
     apiVersion: v1
   fieldref:
-    fieldpath: data.kfpMysqlPersistentVolumeHandle
+    fieldpath: data.mysqlPersistentVolumeHandle
 - name: mysqlPvName
   objref:
     kind: ConfigMap
