@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: $(mysqlPvName)
+spec:
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: kubeflow
+    name: mysql-pvc
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: retained-ebs-sc
+  capacity:
+    storage: 20Gi
+  accessModes:
+  - ReadWriteOnce
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: $(mysqlPersistentVolumeHandle)
+    fsType: ext4
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - eu-central-1a

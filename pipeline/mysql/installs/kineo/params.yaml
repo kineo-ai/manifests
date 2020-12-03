@@ -1,0 +1,7 @@
+varReference:
+- path: spec/volumeName
+  kind: PersistentVolumeClaim
+- path: metadata/name
+  kind: PersistentVolume
+- path: spec/csi/volumeHandle
+  kind: PersistentVolume

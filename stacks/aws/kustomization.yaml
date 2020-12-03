@@ -23,7 +23,7 @@ resources:
   # Need to change to - ../../pipeline/installs/multi-user
   # Meta data has been included.
   - ../../pipeline/minio/installs/generic
-  - ../../pipeline/mysql/installs/generic
+  - ../../pipeline/mysql/installs/kineo
   - ../../pipeline/installs/multi-user
   - ../../argo/base_v3
   # Serving components
