@@ -6,7 +6,7 @@ spec:
   claimRef:
     kind: PersistentVolumeClaim
     namespace: kubeflow
-    name: minio-pv-claim
+    name: minio-pvc
   persistentVolumeReclaimPolicy: Retain
   storageClassName: retained-ebs-sc
   capacity:
