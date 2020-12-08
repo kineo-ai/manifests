@@ -58,10 +58,10 @@ vars:
     apiVersion: v1
     kind: ConfigMap
     name: kubeflow-config
-- fieldref:
-    fieldpath: metadata.namespace
-  name: katib-ui-namespace
-  objref:
-    kind: Service
-    name: katib-ui
-    apiVersion: v1
+# - fieldref:
+#     fieldpath: metadata.namespace
+#   name: katib-ui-namespace
+#   objref:
+#     kind: Service
+#     name: katib-ui
+#     apiVersion: v1
