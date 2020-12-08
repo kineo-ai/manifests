@@ -1,0 +1,32 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app.kubernetes.io/component: minio
+  app.kubernetes.io/name: minio
+  maintainer: kineo.ai
+resources:
+- ../generic
+- persistent-volume.yaml
+patchesStrategicMerge:
+- persistent-volume-claim-patch.yaml
+configMapGenerator:
+- name: kineo-pipeline-minio-install-config
+  envs:
+  - params.env
+vars:
+- name: minioPersistentVolumeHandle
+  objref:
+    kind: ConfigMap
+    name: kineo-pipeline-minio-install-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.minioPersistentVolumeHandle
+- name: minioPvName
+  objref:
+    kind: ConfigMap
+    name: kineo-pipeline-minio-install-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.minioPvName
+configurations:
+- params.yaml
