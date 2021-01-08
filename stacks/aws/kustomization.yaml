@@ -29,10 +29,12 @@ resources:
   # Serving components
   # - ../../seldon/seldon-core-operator/overlays/application
   # AWS components
-  - ../../aws/aws-alb-ingress-controller/base_v3
+  # Kineo Comment: remove, we manage our own loadbalancer
+  # - ../../aws/aws-alb-ingress-controller/base_v3 
   - ../../aws/nvidia-device-plugin/overlays/application
   # Kubernetes resources - anonymous user
-  - ../../default-install/base
+  # Kineo Comment: remove, we don't allow anonymous users
+  # - ../../default-install/base
   # Metadata
   - ../../metadata/v3
 generatorOptions:
